@@ -1,0 +1,45 @@
+.progress-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width of the parent container */
+}
+
+.progress-text {
+    width: 50px; /* Fixed width for the text */
+    font-size: 14px; /* Font size */
+    color: #2a5bda; /* Color for the text */
+}
+
+.progress-percent-text {
+    width: 40px; /* Fixed width for percentage text */
+    font-size: 14px; /* Font size */
+    color: #323357; /* Color for percentage text */
+    margin-left: auto; /* Push this text to the right */
+}
+
+.progress-middle {
+    height: 15px; /* Height of the progress bar area */
+    flex-grow: 1; /* Allow it to grow to take remaining space */    
+    margin: 0 10px; /* Horizontal margin */
+    position: relative; /* Needed for absolute positioning of progressWrap */
+}
+
+.progress-wrap {
+    background-color: #f5f8ff; /* Background color for the progress area */
+    border-radius: 18px; /* Rounded corners */
+    position: absolute; /* Position to allow the inner bar to fit */
+    top: 0; /* Align at the top */
+    left: 0; /* Align to the left */
+    bottom: 0; /* Fill to the bottom */
+    right: 0; /* Fill to the right */
+    padding: 2px; /* Padding for the inner bar */
+}
+
+.progress-bar {
+    flex: 1; /* Fill the width of the wrapper */
+    box-shadow: 0px 0px 4px rgba(255, 204, 72, 1); /* Shadow effect */
+    background-color: #ffcc48; /* Color of the progress bar */
+    border-radius: 18px; /* Rounded corners */
+    min-width: 5px; /* Minimum width */
+    height: 100%; /* Full height of the progress wrap */
+}
