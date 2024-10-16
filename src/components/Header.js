@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <h1>Scrapying Google Review</h1> {/* You can change this text to your project name */}
+        <h1>Review</h1> {/* You can change this text to your project name */}
       </div>
       <nav className="navbar">
         <ul>
