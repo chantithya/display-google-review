@@ -5,6 +5,7 @@ import Percentagebar from "./components/Percentagebar";
 import TotalWrap from "./components/TotalWrap";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Barchart from './components/Barchart';
 
 export default function App() {
 
@@ -114,11 +115,16 @@ export default function App() {
           </div>
         </div>
         <div className='form-group'>
-          Bar Chart
+          <div className="review-container">
+            <Barchart />
+          </div>
         </div>
         <div className='form-group'>
-          Pie Chart
+          <div className="review-container">
+            Doughnut Chart
+          </div>
         </div>
+        <div>&nbsp;</div>
       </div>
 
       <Footer /> {/* Add Footer component */}
