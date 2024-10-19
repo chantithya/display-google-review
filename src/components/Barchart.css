@@ -1,0 +1,47 @@
+.menu {
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .iconButton {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 11px;
+  }
+  
+  .icon {
+    font-size: 18px; /* Adjust size as needed */
+    margin: 2px;
+    color: #323357; /* Change color if needed */
+    align-items: center;
+  }
+  
+  .options {
+    position: absolute;
+    top: 100%;
+    right: 0; /* Align the options to the right of the button */
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 10;
+    width: 150px; /* Adjust width as needed */
+  }
+  
+  .option {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 11px;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }
+  
