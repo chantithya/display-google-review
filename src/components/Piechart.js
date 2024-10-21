@@ -10,22 +10,6 @@ export default function Piechart() {
     series: [500, 400, 350, 300, 100],
   });
 
-  // Example function to simulate data fetching or update
-  const updateData = () => {
-    // Simulate new data - you can replace this with real data fetching logic
-    const newData = {
-      labels: ["Excellent", "Very Good", "Average", "Poor", "Terrible"],
-      series: [
-        Math.floor(Math.random() * 1000),
-        Math.floor(Math.random() * 1000),
-        Math.floor(Math.random() * 1000),
-        Math.floor(Math.random() * 1000),
-        Math.floor(Math.random() * 1000),
-      ],
-    };
-    setChartData(newData);
-  };
-
   // Function to download the chart as PNG
   const handleDownloadPNG = () => {
     if (chartRef.current) {
@@ -75,7 +59,6 @@ export default function Piechart() {
         <div className="menu-dropdown">
           <button onClick={handleDownloadPNG}>📷 Download PNG</button>
           <button onClick={handleDownloadCSV}>📊 Download CSV</button>
-          <button onClick={updateData}>🔄 Update Data</button> {/* Button to update data */}
         </div>
       )}
 
