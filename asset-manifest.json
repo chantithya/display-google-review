@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/display-google-review/static/css/main.efac2197.css",
-    "main.js": "/display-google-review/static/js/main.ab0a9cc2.js",
+    "main.css": "/display-google-review/static/css/main.fdd5d91f.css",
+    "main.js": "/display-google-review/static/js/main.29277bac.js",
     "static/js/453.f8587d38.chunk.js": "/display-google-review/static/js/453.f8587d38.chunk.js",
+    "static/media/fa-solid-900.ttf": "/display-google-review/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/fa-brands-400.ttf": "/display-google-review/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
+    "static/media/fa-solid-900.woff2": "/display-google-review/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
+    "static/media/fa-brands-400.woff2": "/display-google-review/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
+    "static/media/fa-regular-400.ttf": "/display-google-review/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
+    "static/media/fa-regular-400.woff2": "/display-google-review/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/fa-v4compatibility.ttf": "/display-google-review/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
+    "static/media/fa-v4compatibility.woff2": "/display-google-review/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/display-google-review/index.html",
-    "main.efac2197.css.map": "/display-google-review/static/css/main.efac2197.css.map",
-    "main.ab0a9cc2.js.map": "/display-google-review/static/js/main.ab0a9cc2.js.map",
+    "main.fdd5d91f.css.map": "/display-google-review/static/css/main.fdd5d91f.css.map",
+    "main.29277bac.js.map": "/display-google-review/static/js/main.29277bac.js.map",
     "453.f8587d38.chunk.js.map": "/display-google-review/static/js/453.f8587d38.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.efac2197.css",
-    "static/js/main.ab0a9cc2.js"
+    "static/css/main.fdd5d91f.css",
+    "static/js/main.29277bac.js"
   ]
 }
