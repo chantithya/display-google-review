@@ -28,6 +28,36 @@ export default function App() {
     setEndDate('');
   }
 
+
+  // barchart
+  const chartData = [
+    {
+      label: "Excellent",
+      values: [500, 0, 0, 0, 0], // Only for Excellent
+      color: "rgba(0, 0, 255, 0.6)",
+    },
+    {
+      label: "Very Good",
+      values: [0, 400, 0, 0, 0], // Only for Very Good
+      color: "rgba(255, 0, 255, 0.6)",
+    },
+    {
+      label: "Average",
+      values: [0, 0, 350, 0, 0], // Only for Average
+      color: "rgba(255, 195, 0, 0.6)",
+    },
+    {
+      label: "Poor",
+      values: [0, 0, 0, 300, 0], // Only for Poor
+      color: "rgba(0, 255, 255, 0.6)",
+    },
+    {
+      label: "Terrible",
+      values: [0, 0, 0, 0, 100], // Only for Terrible
+      color: "rgba(0, 255, 0, 0.6)",
+    },
+  ];
+
   return (
     <div className="App">
       <Header /> {/* Add Header component */}
@@ -90,34 +120,38 @@ export default function App() {
       <div className="container">
         <div className='form-group'>
           <div className="review-container">
-            <h1 className="title">Customer reviews</h1>
-            <div>
-              <TotalWrap rating={4.7} />
-            </div>
-            <p className="amount-text">40 customer ratings</p>
+            
+              <h1 className="title">Customer reviews</h1>
+                <div>
+                  <TotalWrap rating={4.7} />
+                </div>
+                <p className="amount-text">40 customer ratings</p>
 
-            <div className="row">
-              <div className="spacer">
-                <Percentagebar starText="5 Stars" percentage={84} />
-              </div>
-              <div className="spacer">
-                <Percentagebar starText="4 Stars" percentage={9} />
-              </div>
-              <div className="spacer">
-                <Percentagebar starText="3 Stars" percentage={4} />
-              </div>
-              <div className="spacer">
-                <Percentagebar starText="2 Stars" percentage={2} />
-              </div>
-              <div className="spacer">
-                <Percentagebar starText="1 Stars" percentage={1} />
-              </div>
-            </div>
+                <div className="row">
+                  <div className="spacer">
+                    <Percentagebar starText="5 Stars" percentage={84} />
+                  </div>
+                  <div className="spacer">
+                    <Percentagebar starText="4 Stars" percentage={9} />
+                  </div>
+                  <div className="spacer">
+                    <Percentagebar starText="3 Stars" percentage={4} />
+                  </div>
+                  <div className="spacer">
+                    <Percentagebar starText="2 Stars" percentage={2} />
+                  </div>
+                  <div className="spacer">
+                    <Percentagebar starText="1 Stars" percentage={1} />
+                  </div>
+                </div>
+          
+              
+
           </div>
         </div>
         <div className='form-group'>
           <div className="review-container">
-            <Barchart />
+            <Barchart chartData={chartData} />
           </div>
         </div>
         <div className='form-group'>

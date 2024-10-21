@@ -12,7 +12,7 @@
     align-items: center;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     cursor: pointer;
     font-size: 11px;
   }
@@ -33,12 +33,13 @@
     border-radius: 5px;
     z-index: 10;
     width: 150px; /* Adjust width as needed */
+    padding: 5px;
   }
   
   .option {
     padding: 8px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: 14px;
   }
   
   .option:hover {

@@ -14,25 +14,18 @@ defaults.plugins.title.align = "start";
 defaults.plugins.title.font.size = 20;
 defaults.plugins.title.color = "#323357";
 
-export default function Barchart() {
+export default function Barchart({ chartData }) {
   const chartRef = useRef(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  // Prepare dynamic data for the chart
   const data = {
     labels: ["Excellent", "Very Good", "Average", "Poor", "Terrible"],
-    datasets: [
-      {
-        label: "Revenue",
-        data: [500, 400, 350, 300, 100],
-        backgroundColor: [
-          "rgba(0, 0, 255, 0.6)",
-          "rgba(255, 0, 255, 0.6)",
-          "rgba(255, 195, 0, 0.6)",
-          "rgba(0, 255, 255, 0.6)",
-          "rgba(0, 255, 0, 0.6)",
-        ],
-      },
-    ],
+    datasets: chartData.map((dataset) => ({
+      label: dataset.label,
+      data: dataset.values, // Directly use the values array from chartData
+      backgroundColor: dataset.color,
+    })),
   };
 
   const options = {
@@ -70,14 +63,20 @@ export default function Barchart() {
 
   // Function to download the data as CSV
   const downloadCSV = () => {
-    const csvData = [
-      ["Label", "Revenue"],
-      ...data.labels.map((label, index) => [label, data.datasets[0].data[index]]),
-    ]
-      .map(row => row.join(","))
-      .join("\n");
+    // Create an array for the CSV data
+    const csvData = data.labels.map((label, index) => {
+        // Get the value for the current label from each dataset
+        const value = data.datasets.reduce((acc, dataset) => {
+            return acc + dataset.data[index]; // Sum the values for each dataset
+        }, 0); // Start with 0
+        
+        return `${label},${value}`; // Return the label and its total value
+    });
 
-    const blob = new Blob([csvData], { type: 'text/csv' });
+    // Join the data into CSV format
+    const csvContent = csvData.join("\n");
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -85,6 +84,7 @@ export default function Barchart() {
     a.click();
     window.URL.revokeObjectURL(url);
   };
+
 
   // Handle format selection
   const handleSelectFormat = (format) => {
@@ -97,28 +97,30 @@ export default function Barchart() {
   };
 
   return (
-    <div style={{ height: '350px', position: 'relative' }}>
-      {/* Menu for Download Options */}
-      <div className="menu">
-        <div className="dropdown">
-          <div className="iconButton" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-            <i className="fa-solid fa-bars icon"></i>
-          </div>
-          {isDropdownOpen && (
-            <div className="options">
-              <div className="option" onClick={() => handleSelectFormat('png')}>
-                Download PNG
-              </div>
-              <div className="option" onClick={() => handleSelectFormat('csv')}>
-                Download CSV
-              </div>
+    <div className="barchart-container">
+      <div style={{ height: '350px', position: 'relative' }}>
+        {/* Menu for Download Options */}
+        <div className="menu">
+          <div className="dropdown">
+            <div className="iconButton" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+              <i className="fa-solid fa-bars icon"></i>
             </div>
-          )}
+            {isDropdownOpen && (
+              <div className="options">
+                <div className="option" onClick={() => handleSelectFormat('png')}>
+                  📷 Download PNG 
+                </div>
+                <div className="option" onClick={() => handleSelectFormat('csv')}>
+                  📊 Download CSV
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Bar Chart */}
-      <Bar ref={chartRef} data={data} options={options} />
+        {/* Bar Chart */}
+        <Bar ref={chartRef} data={data} options={options} />
+      </div>
     </div>
   );
 }

@@ -1,3 +1,16 @@
+/* Global box-sizing rule */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Center-align App content */
 .App {
   text-align: center;
 }
@@ -37,8 +50,9 @@
   }
 }
 
+/* Form styles */
 .row {
-  margin-top: 60px;
+  margin-top: 75px;
 }
 
 .spacer {
@@ -49,7 +63,7 @@ h1 {
   color: #323357; /* Title color */
 }
 
-/* Container for centering the form */
+/* Center form container */
 .App-container {
   display: flex;
   justify-content: center;
@@ -59,7 +73,7 @@ h1 {
   padding: 20px;
 }
 
-/* Styling the form card */
+/* Form card styling */
 .form-app {
   background-color: #ffffff;
   padding: 40px;
@@ -70,7 +84,6 @@ h1 {
   text-align: left;
 }
 
-/* Title and description styles */
 .form-title {
   font-size: 24px;
   font-weight: 600;
@@ -88,7 +101,7 @@ h1 {
 
 /* Input field styles */
 .form-group {
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .form-label {
@@ -133,29 +146,61 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* Responsive styles */
+/* Responsive Design for Tablets */
 @media (max-width: 768px) {
   .form-app {
-    padding: 30px;
+    padding: 20px;
   }
 
   .form-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .form-description {
     font-size: 13px;
   }
 
+  .form-group {
+    margin-bottom: 15px;
+  }
+
   .submit-btn {
-    font-size: 15px;
+    font-size: 14px;
+    padding: 10px;
   }
 }
 
+/* Responsive Design for Mobile Devices */
+@media (max-width: 480px) {
+  .form-app {
+    padding: 15px;
+    max-width: 100%;
+  }
 
-/* sum of star */
+  .form-title {
+    font-size: 18px;
+  }
 
-/* Main container styles */
+  .form-description {
+    font-size: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .form-input {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Container for star ratings and reviews */
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -166,28 +211,24 @@ h1 {
   gap: 20px;
 }
 
-/* Each form-group section */
 .container > .form-group {
   flex: 1;
-  min-width: 250px; /* Ensures each form-group takes at least 250px */
-  max-width: 100%; /* Keeps the form-group flexible */
-  margin: 10px;
+  min-width: 250px;
+  margin: -15px;
   padding: 20px;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
-/* Review container */
+/* Review section */
 .review-container {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 40px 30px;
   width: 100%;
   box-shadow: 0px 5px 2px rgba(193, 211, 251, 0.5);
-  margin: 0 auto; /* Centers the review-container */
-  height: 390px;
+  margin: 0 auto;
+  height: 480px;
 }
 
-/* Title inside review container */
 .title {
   font-weight: bold;
   font-size: 20px;
@@ -196,7 +237,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Total ratings section */
 .total-wrap {
   margin-top: 20px;
   margin-bottom: 5px;
@@ -205,22 +245,16 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 0px 20px 0px 20px;
 }
 
-/* Spacer for each star rating */
-.spacer {
-  margin-bottom: 15px;
-}
-
-/* Text for total ratings */
 .amount-text {
   font-size: 16px;
   color: #595b71;
   text-align: center;
 }
 
-/* Responsive behavior */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
@@ -246,19 +280,19 @@ h1 {
 
 @media (max-width: 480px) {
   .container {
-    padding: 10px; /* Reduce padding on small screens */
+    padding: 10px;
   }
-  
+
   .form-group {
     width: 100%;
     padding: 10px;
   }
-  
+
   .review-container {
     width: 100%;
     padding: 15px 10px;
   }
-  
+
   .title {
     font-size: 18px;
   }
@@ -270,56 +304,5 @@ h1 {
 
   .amount-text {
     font-size: 14px;
-  }
-}
-
-
-
-
-/*  */
-
-/* Responsive behavior for different screen sizes */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Stacks items vertically on smaller screens */
-  }
-
-  .review-container {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .container > div {
-    min-width: 100%;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .form-app {
-    padding: 15px;
-  }
-
-  .form-input {
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  .submit-btn {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .title {
-    font-size: 16px;
-  }
-
-  .container > div {
-    font-size: 20px;
-    padding: 5px;
-  }
-
-  .total-wrap {
-    padding: 5px;
   }
 }
