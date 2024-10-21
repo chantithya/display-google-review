@@ -2,7 +2,7 @@
   "name": "display-google-review",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://chantithya.github.io/display-google-review",
+  "homepage": "https://chantithya.github.io/display-google-review/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
