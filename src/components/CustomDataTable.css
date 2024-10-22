@@ -1,0 +1,154 @@
+/* CustomDataTable.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Data Table Container */
+.custom-data-table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling */
+}
+
+/* Search and Button Container Styles */
+.search-and-button {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 10px; /* Space between items */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+/* Search Input */
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Full width for small screens */
+    max-width: 300px; /* Limit the width on larger screens */
+    font-size: 14px;
+}
+
+/* Rows Per Page Dropdown */
+.rows-per-page-dropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px; /* Match font size with search input */
+}
+
+/* CSV Download Button */
+.csv-download-button {
+    padding: 10px;
+    background-color: #63E6BE; /* Define background color */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Add transform for hover effect */
+    display: flex; /* Center icon inside button */
+    align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center icon horizontally */
+    min-width: 120px; /* Ensure a minimum width for button */
+}
+
+.csv-download-button:hover {
+    background-color: #45b99a; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Table Styles */
+.data-table-container {
+    margin-top: 20px;
+}
+
+/* Responsive Table Styles */
+.react-data-table {
+    width: 100%;
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dataTable th,
+.dataTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.dataTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Pagination Styles */
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.custom-pagination .pagination-button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #63E6BE; /* Change to your desired color */
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s; /* Add transform for hover effect */
+}
+
+.custom-pagination .pagination-button:hover {
+    background-color: #45b99a; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.custom-pagination .pagination-button.disabled {
+    background-color: #ccc; /* Gray for disabled buttons */
+    cursor: not-allowed;
+    color: #666; /* Change text color for disabled state */
+}
+
+.custom-pagination .pagination-info {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .custom-data-table {
+        padding: 15px;
+    }
+
+    .search-and-button {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .search-input,
+    .rows-per-page-dropdown,
+    .csv-download-button {
+        width: 100%; /* Full width for inputs on smaller screens */
+    }
+
+    .custom-pagination {
+        flex-direction: column; /* Stack buttons on small screens */
+        align-items: flex-start; /* Align to the start */
+    }
+
+    .custom-pagination .pagination-button {
+        margin: 5px 0; /* Space between buttons */
+    }
+}

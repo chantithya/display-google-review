@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import Barchart from './components/Barchart';
 import Piechart from './components/Piechart';
 
+import CustomDataTable from './components/CustomDataTable';
+
 export default function App() {
 
   const [keyword, setKeyword] = useState('');
@@ -57,6 +59,45 @@ export default function App() {
       color: "rgba(0, 255, 0, 0.6)",
     },
   ];
+
+
+
+
+
+  const [tableData] = useState([
+    {
+      name: 'Tiger Nixon',
+      position: 'System Architect',
+      office: 'Edinburgh',
+      extn: '5421',
+      startDate: '2011-04-25',
+      salary: '$320,800',
+    },
+    {
+      name: 'Garrett Winters',
+      position: 'Accountant',
+      office: 'Tokyo',
+      extn: '8422',
+      startDate: '2011-07-25',
+      salary: '$170,750',
+    },
+    {
+      name: 'Ashton Cox',
+      position: 'Junior Technical Author',
+      office: 'San Francisco',
+      extn: '1562',
+      startDate: '2009-01-12',
+      salary: '$86,000',
+    },
+    {
+      name: 'Cedric Kelly',
+      position: 'Senior Javascript Developer',
+      office: 'Edinburgh',
+      extn: '6224',
+      startDate: '2012-03-29',
+      salary: '$433,060',
+    },
+  ]);
 
   return (
     <div className="App">
@@ -160,6 +201,11 @@ export default function App() {
           </div>
         </div>
         <div>&nbsp;</div>
+      </div>
+
+
+      <div>
+        <CustomDataTable />
       </div>
 
       <Footer /> {/* Add Footer component */}
