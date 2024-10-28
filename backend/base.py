@@ -34,28 +34,35 @@ def scrape_google_maps_reviews(url):
         driver.maximize_window()
         driver.get(url)
 
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'fontDisplayLarge')))
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'fontBodySmall')))
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, "d4r55")))
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, "rsqaWe")))
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, "wiI7pd")))
-
+        # Adjust the wait time if necessary
+        WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, 'fontDisplayLarge')))
+        
+        # Scroll to load more elements
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         soup = BeautifulSoup(driver.page_source, 'html.parser')
 
+        # Extract main data
         font_display_large = [div.get_text() for div in soup.find_all('div', class_='fontDisplayLarge')]
-        font_body_small = [div.get_text() for div in soup.find_all('div', class_='fontBodySmall')]
+        font_body_small_confirmed = [div.get_text() for div in soup.select('div.jANrlb > div.fontBodySmall')]
         reviews = [review.get_text() for review in soup.find_all('div', class_='d4r55')]
         review_spans = [span.get_text() for span in soup.find_all('span', class_='rsqaWe')]
         wiI7pd_review_spans = [span.get_text() for span in soup.find_all('span', class_='wiI7pd')]
+        bhokxe_aria_labels = [row.get('aria-label') for row in soup.find_all('tr', class_='BHOKXe') if row.get('aria-label')]
 
-        # Return data as dictionary
+        # Combine data
+        combined_reviews = []
+        for i in range(len(reviews)):
+            combined_reviews.append({
+                "customer_review": reviews[i] if i < len(reviews) else None,
+                "date_review": review_spans[i] if i < len(review_spans) else None,
+                "star_review": bhokxe_aria_labels[i] if i < len(bhokxe_aria_labels) else None,
+                "description": wiI7pd_review_spans[i] if i < len(wiI7pd_review_spans) else None
+            })
+
         return {
-            "fontDisplayLarge": font_display_large,
-            "fontBodySmall": font_body_small,
-            "reviews": reviews,
-            "spanReviews": review_spans,
-            "description": wiI7pd_review_spans
+            "total_star": font_display_large,
+            "confirmed_reviews": font_body_small_confirmed,
+            "combined_reviews": combined_reviews
         }
 
     except TimeoutException:
@@ -69,9 +76,12 @@ def scrape_route():
     url = request.args.get('url')
     if not url:
         return jsonify({"error": "Please provide a valid Google Maps URL using the 'url' parameter."}), 400
-    
-    data = scrape_google_maps_reviews(url)
-    return jsonify(data)
+
+    try:
+        data = scrape_google_maps_reviews(url)
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     api.run(debug=True)
